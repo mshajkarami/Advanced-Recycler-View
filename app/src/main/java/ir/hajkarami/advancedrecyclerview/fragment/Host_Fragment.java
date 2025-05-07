@@ -1,4 +1,4 @@
-package ir.hajkarami.advancedrecyclerview;
+package ir.hajkarami.advancedrecyclerview.fragment;
 
 import android.os.Bundle;
 
@@ -10,6 +10,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+
+import ir.hajkarami.advancedrecyclerview.R;
 
 public class Host_Fragment extends Fragment {
     Button btn1, btn2;
@@ -44,5 +46,15 @@ public class Host_Fragment extends Fragment {
                         .commit();
             }
         });
+        btn2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                getParentFragmentManager().beginTransaction()
+                        .replace(R.id.fragmentContainerView, new CardViewFragment())
+                        .commit();
+            }
+        });
+
+
     }
 }

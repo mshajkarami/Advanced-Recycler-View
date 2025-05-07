@@ -7,7 +7,7 @@
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/fragmentContainerView"
-        android:name="ir.hajkarami.advancedrecyclerview.Host_Fragment"
+        android:name="ir.hajkarami.advancedrecyclerview.fragment.Host_Fragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layout_constraintBottom_toBottomOf="parent"
