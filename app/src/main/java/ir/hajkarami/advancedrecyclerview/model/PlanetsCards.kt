@@ -1,8 +1,8 @@
 package ir.hajkarami.advancedrecyclerview.model
 
 data class PlanetsCards(
-    private val planetName2 : String,
-    private val distanceFromSun2 : Int,
-    private val gravityFromSun2 : Int,
-    private val diameters2 : Int
+    var planetName2 : String,
+    var distanceFromSun2 : Int,
+    var gravityFromSun2 : Int,
+    var diameters2 : Int
 )

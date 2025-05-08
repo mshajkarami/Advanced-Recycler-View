@@ -3,23 +3,23 @@ package ir.hajkarami.advancedrecyclerview.fragment;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import java.util.ArrayList;
+
 import ir.hajkarami.advancedrecyclerview.R;
+import ir.hajkarami.advancedrecyclerview.adapter.CardAdapter;
+import ir.hajkarami.advancedrecyclerview.model.PlanetsCards;
 
 public class CardViewFragment extends Fragment {
-
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
-
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
+    private RecyclerView recyclerView;
+    private CardAdapter adapter;
+    private ArrayList<PlanetsCards> planetsArrayList;
 
     public CardViewFragment() {
         // Required empty public constructor
@@ -28,8 +28,6 @@ public class CardViewFragment extends Fragment {
     public static CardViewFragment newInstance(String param1, String param2) {
         CardViewFragment fragment = new CardViewFragment();
         Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
         fragment.setArguments(args);
         return fragment;
     }
@@ -37,16 +35,49 @@ public class CardViewFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_card_view, container, false);
+        View view = inflater.inflate(R.layout.fragment_card_view, container, false);
+        InitializeCardView(view);
+        return view;
+    }
+    private void InitializeCardView(View view) {
+        recyclerView = view.findViewById(R.id.recyclerView);
+        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+        planetsArrayList = new ArrayList<>();
+
+        adapter = new CardAdapter(getContext(), planetsArrayList);
+        recyclerView.setAdapter(adapter);
+
+        CreateDataForCards();
+
+
+    }
+    private void CreateDataForCards() {
+        PlanetsCards planet = new PlanetsCards("Earth", 150,10,12750);
+        planetsArrayList.add(planet);
+        // Adding some other info
+        planet = new PlanetsCards("Jupiter", 778, 26, 143000);
+        planetsArrayList.add(planet);
+        planet = new PlanetsCards("Mars", 228, 4, 6800);
+        planetsArrayList.add(planet);
+        planet = new PlanetsCards("Pluto", 5900, 1, 2320);
+        planetsArrayList.add(planet);
+        planet = new PlanetsCards("Venus", 108, 9, 12750);
+        planetsArrayList.add(planet);
+        planet = new PlanetsCards("Saturn", 1429, 11, 120000);
+        planetsArrayList.add(planet);
+        planet = new PlanetsCards("Mercury", 58, 4, 4900);
+        planetsArrayList.add(planet);
+        planet = new PlanetsCards("Neptune", 4500, 12, 50500);
+        planetsArrayList.add(planet);
+        planet = new PlanetsCards("Uranus", 2870, 9, 52400);
+        planetsArrayList.add(planet);
+
+        adapter.notifyDataSetChanged();
+
     }
 }
