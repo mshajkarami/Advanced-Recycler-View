@@ -14,7 +14,7 @@ import android.widget.Button;
 import ir.hajkarami.advancedrecyclerview.R;
 
 public class Host_Fragment extends Fragment {
-    Button btn1, btn2;
+    Button btn1, btn2, btn3;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -37,6 +37,7 @@ public class Host_Fragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         btn1 = view.findViewById(R.id.button);
         btn2 = view.findViewById(R.id.button2);
+        btn3 = view.findViewById(R.id.button3);
 
         btn1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -51,6 +52,14 @@ public class Host_Fragment extends Fragment {
             public void onClick(View v) {
                 getParentFragmentManager().beginTransaction()
                         .replace(R.id.fragmentContainerView, new CardViewFragment())
+                        .commit();
+            }
+        });
+        btn3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                getParentFragmentManager().beginTransaction()
+                        .replace(R.id.fragmentContainerView, new SingleFragment())
                         .commit();
             }
         });
