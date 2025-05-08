@@ -19,7 +19,7 @@ import ir.hajkarami.advancedrecyclerview.model.PlanetsCards;
 public class SingleAdapter extends RecyclerView.Adapter<SingleAdapter.ViewHolder> {
     private Context context;
     private ArrayList<Employee> arrayList;
-    private int checkedPosition = 0; // -1: no default selection  0: 1st item selected
+    private int checkedPosition = 0;
 
     public SingleAdapter(Context context , ArrayList<Employee> arrayList) {
         this.context = context ;
@@ -27,7 +27,6 @@ public class SingleAdapter extends RecyclerView.Adapter<SingleAdapter.ViewHolder
     }
 
     public void SetEmployees(ArrayList<Employee> employees){
-        this.arrayList = new ArrayList<>();
         this.arrayList = employees;
         notifyDataSetChanged();
     }
@@ -39,6 +38,8 @@ public class SingleAdapter extends RecyclerView.Adapter<SingleAdapter.ViewHolder
             super(itemView);
         }
         void SetDetails (final Employee employee){
+            mImageView = itemView.findViewById(R.id.imageView);
+            txtName = itemView.findViewById(R.id.emp_name);
             if (checkedPosition == -1){
                 mImageView.setVisibility(View.GONE);
             }else {

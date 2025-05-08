@@ -13,7 +13,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
 
 import ir.hajkarami.advancedrecyclerview.R;
-import ir.hajkarami.advancedrecyclerview.adapter.CardAdapter;
 import ir.hajkarami.advancedrecyclerview.adapter.SingleAdapter;
 import ir.hajkarami.advancedrecyclerview.model.Employee;
 
@@ -35,12 +34,12 @@ public class SingleFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_single_view, container, false);
-        InitializeCardView(view);
+        InitializeEmploy(view);
         return view;
     }
 
-    private void InitializeCardView(View view) {
-        recyclerView = view.findViewById(R.id.recyclerView);
+    private void InitializeEmploy(View view) {
+        recyclerView = view.findViewById(R.id.recyclerView2);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         employees = new ArrayList<>();
 
@@ -62,14 +61,12 @@ public class SingleFragment extends Fragment {
     }
 
     private void CreateDataForList() {
-        employees = new ArrayList<>();
         for (int i = 0; i < 20; i++) {
             Employee employee = new Employee();
             employee.setName("Employee " + (i + 1));
             employees.add(employee);
         }
         adapter.SetEmployees(employees);
-
     }
 
     private void ShowToast(String msg) {

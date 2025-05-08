@@ -63,7 +63,5 @@ public class Host_Fragment extends Fragment {
                         .commit();
             }
         });
-
-
     }
 }
