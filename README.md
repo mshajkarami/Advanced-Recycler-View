@@ -35,6 +35,7 @@ An advanced implementation of Android's `RecyclerView` with clean architecture, 
 
 
 🧩 Project Structure
+
 com.yourpackage.advancedrecyclerview/
 │
 ├── data/               # Repositories and data sources
